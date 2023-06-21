@@ -1,0 +1,105 @@
+Q1:CREATE DATABASE Practical_MM;
+
+Q2:CREATE TABLE tblEmployee (
+    Id SERIAL PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Email VARCHAR(100) NOT NULL,
+    Phone VARCHAR(10) NOT NULL,
+    Address NVARCHAR(200),
+    State VARCHAR(100) NOT NULL,
+    City VARCHAR(100) NOT NULL,
+    CreatedDate DATE );
+
+
+
+
+Q3:INSERT INTO tblEmployee (Name, Email, Phone, Address, State, City)
+   VALUES ('rajeshwar', 'rajeshwarmali07@gmail.com', '1234567890', '234 dhule', 'Gujarat', 'Ahmedabad');
+
+  INSERT INTO tblEmployee (Name, Email, Phone, Address, State, City)
+  VALUES ('gaurav', 'gauravsutar23@gmail.com', '9876543210', '456 phalan', 'Maharashtra', 'Pune');
+
+  INSERT INTO tblEmployee (Name, Email, Phone, Address, State, City)
+  VALUES ('kunal', 'kunal@gmail.com', '877354446', '65 a kalvan', 'Gujarat', 'surat');
+
+  INSERT INTO tblEmployee (Name, Email, Phone, Address, State, City)
+  VALUES ('rahul', 'rahul@gmail.com', '764572236', '766 nashik', 'Maharashtra', 'Pune');
+
+ +----+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+| Id | Name      | Email                     | Phone      | Address     | State       | City      | CreatedDate |
++----+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+|  1 | rajeshwar | rajeshwarmali07@gmail.com | 1234567890 | 234 dhule   | Gujarat     | Ahmedabad | NULL        |
+|  2 | gaurav    | gauravsutar23@gmail.com   | 9876543210 | 456 phalan  | Maharashtra | Pune      | NULL        |
+|  3 | kunal     | kunal@gmail.com           | 877354446  | 65 a kalvan | Gujarat     | surat     | NULL        |
+|  4 | rahul     | rahul@gmail.com           | 764572236  | 766 nashik  | Maharashtra | Pune      | NULL        |
++----+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+
+
+Q4:UPDATE tblEmployee SET Email = 'updated.email@example.com' WHERE Id = 1;
++----+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+| Id | Name      | Email                     | Phone      | Address     | State       | City      | CreatedDate |
++----+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+|  1 | rajeshwar | updated.email@example.com | 1234567890 | 234 dhule   | Gujarat     | Ahmedabad | NULL        |
+|  2 | gaurav    | gauravsutar23@gmail.com   | 9876543210 | 456 phalan  | Maharashtra | Pune      | NULL        |
+|  3 | kunal     | kunal@gmail.com           | 877354446  | 65 a kalvan | Gujarat     | surat     | NULL        |
+|  4 | rahul     | rahul@gmail.com           | 764572236  | 766 nashik  | Maharashtra | Pune      | NULL        |
++----+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+
+
+
+Q5:SELECT * FROM tblEmployee ORDER BY Id DESC;
+  ---+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+| Id | Name      | Email                     | Phone      | Address     | State       | City      | CreatedDate |
++----+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+|  4 | rahul     | rahul@gmail.com           | 764572236  | 766 nashik  | Maharashtra | Pune      | NULL        |
+|  3 | kunal     | kunal@gmail.com           | 877354446  | 65 a kalvan | Gujarat     | surat     | NULL        |
+|  2 | gaurav    | gauravsutar23@gmail.com   | 9876543210 | 456 phalan  | Maharashtra | Pune      | NULL        |
+|  1 | rajeshwar | updated.email@example.com | 1234567890 | 234 dhule   | Gujarat     | Ahmedabad | NULL        |
++----+-----------+---------------------------+------------+-------------+-------------+-----------+-------------+
+
+
+
+Q6:SELECT * FROM tblEmployee WHERE State = 'Gujarat';
+ +----+-----------+---------------------------+------------+-------------+---------+-----------+-------------+
+| Id | Name      | Email                     | Phone      | Address     | State   | City      | CreatedDate |
++----+-----------+---------------------------+------------+-------------+---------+-----------+-------------+
+|  1 | rajeshwar | updated.email@example.com | 1234567890 | 234 dhule   | Gujarat | Ahmedabad | NULL        |
+|  3 | kunal     | kunal@gmail.com           | 877354446  | 65 a kalvan | Gujarat | surat     | NULL        |
++----+-----------+---------------------------+------------+-------------+---------+-----------+-------------+
+
+
+
+
+Q7:SELECT * FROM tblEmployee WHERE State = 'Maharashtra' AND City = 'Pune';
+ +----+--------+-------------------------+------------+------------+-------------+------+-------------+
+| Id | Name   | Email                   | Phone      | Address    | State       | City | CreatedDate |
++----+--------+-------------------------+------------+------------+-------------+------+-------------+
+|  2 | gaurav | gauravsutar23@gmail.com | 9876543210 | 456 phalan | Maharashtra | Pune | NULL        |
+|  4 | rahul  | rahul@gmail.com         | 764572236  | 766 nashik | Maharashtra | Pune | NULL        |
++----+--------+-------------------------+------------+------------+-------------+------+-------------+
+
+
+
+Q8:SELECT * FROM tblEmployee WHERE CreatedDate >= CURRENT_DATE - INTERVAL '15 days';
+
+Q9:SELECT * FROM tblEmployee WHERE Name LIKE '%sh%';
+----+-----------+---------------------------+------------+-----------+---------+-----------+-------------+
+| Id | Name      | Email                     | Phone      | Address   | State   | City      | CreatedDate |
++----+-----------+---------------------------+------------+-----------+---------+-----------+-------------+
+|  1 | rajeshwar | updated.email@example.com | 1234567890 | 234 dhule | Gujarat | Ahmedabad | NULL        |
++----+-----------+---------------------------+------------+-
+
+
+Q10:SELECT * FROM tblEmployee ORDER BY Id DESC LIMIT 1;
+
++----+-------+-----------------+-----------+------------+-------------+------+-------------+
+| Id | Name  | Email           | Phone     | Address    | State       | City | CreatedDate |
++----+-------+-----------------+-----------+------------+-------------+------+-------------+
+|  4 | rahul | rahul@gmail.com | 764572236 | 766 nashik | Maharashtra | Pune | NULL        |
++----+-------+-----------------+-----------+------------+-------------+------+-------------+
+
+
+
+
+
+
